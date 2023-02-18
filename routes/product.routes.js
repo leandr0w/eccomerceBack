@@ -6,7 +6,7 @@ const router = Router()
 router.get('/', findProduct)
 router.post('/', createProduct)
 router.patch('/', updateProduct)
-router.delete('/', deleteProduct)
+router.delete('/:id', deleteProduct)
 
 module.exports = {
     productRouter: router,
