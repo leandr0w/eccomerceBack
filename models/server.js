@@ -17,7 +17,7 @@ class Server {
     }
     middlewares(){
         this.app.use(cors())
-        this.app.use(express.json())
+        this.app.use(express.json()) 
     }
     routes(){
         this.app.use(this.paths.products, productRouter)
@@ -25,7 +25,7 @@ class Server {
     database(){
         db.authenticate()
         .then(() => console.log('Database authenticated'))
-        .catch(err => console.log('err'))
+        .catch(err => console.log(err))
         db.sync()
         .then(() => console.log('Database synced'))
         .catch(err => console.log(err))
