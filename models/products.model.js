@@ -1,31 +1,36 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../database/db");
 
-//Importante colocar siempre con la primer letra mayuscula porque es un modelo
-const User = db.define('user', {
+const Product = db.define('product', {
     id: {
         primaryKey: true,
         autoIncrement: true,
         allowNull: true,
         type: DataTypes.INTEGER
     },
-    username: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    email: {
+    description: {
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    price: {
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false 
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
+    categoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false 
     },
-    role: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: 'user',
-        enum: ['user', 'admin']
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false 
     },
     status: {
         type: DataTypes.BOOLEAN,
@@ -34,4 +39,4 @@ const User = db.define('user', {
     }
 })
 
-module.exports = User
+module.exports = Product
